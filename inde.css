@@ -451,32 +451,12 @@ ul li{
       
   }
       
-  ul li ul.dropdown li{
-  width: 50%;
-  text-align: center;
-  
-  }
-      
-  ul li ul.dropdown{
-  width:100%;
-  z-index:1;
-  display:none;
-  opacity:0.80;
-      
-  }
-      
+   
       
   ul li a:hover{
   text-decoration: overline black;
   }
       
-  ul li:hover ul.dropdown{
-  display:block;
-  opacity:0.60;
-
-  }
-      
-
   
   ul{
   list-style:none;
