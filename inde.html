@@ -1,1165 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - iPortfolio Bootstrap Template</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="images/single-game.jpg" rel="icon">
-  <link href="images/single-game.jpg" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-</head>
-
-<body class="index-page">
-
-  <header id="header" class="header dark-background d-flex flex-column">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
-
-    <div class="profile-img">
-      <img src="images/nn3.png" alt="" class="img-fluid rounded-circle">
-    </div>
-
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-   
-      <h1 class="sitename">Abhishek Kumar</h1>
-    </a>
-
-    <div class="social-links text-center">
-      <a href="https://www.behance.net/43c4d6f5" class="behance"><i class="bi bi-behance"></i></a>
-      <a href="https://youtube.com/@RenderRush-007/shorts" class="youtube"><i class="bi bi-youtube"></i></a>
-      <a href="https://rumble.com/c/c-6816266" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-      <a href="https://www.linkedin.com/in/abhishek-kumar-732262230" class="linkedin"><i class="bi bi-linkedin"></i></a>
-    </div>
-
-
-    <div id="mybox" class="text-center m-4">Time To Time Update</div>
-    <div class="container text-center"><button id="dark"><i class="bi bi-moon">Dark</i></button><button id="light"><i class="bi bi-sun">Light</i></button>
-  </div>
-   
-   
-   <script>
-
-
-    var clock = document.getElementById("mybox")
-    document.bgcolor = "black"
-    clock.style ="box-shadow: 2px 2px 0px gray;text-align:center;color:white;background:black;"
-    clock.style.width ="200px"
-    clock.style.height ="22px"
-    clock.style.borderEndStartRadius="10px"
-    clock.style.borderRadius="8px"
-    var d
-
-    function show()
-    {
-     d = new Date()
-     clock.innerHTML=d.toLocaleTimeString()
-    }
-
-    var t = setInterval("show()",1000)
-    function stopclock()
-    {
-      clearInterval(t)
-    }
-
-    function starclock()
-    {
-     t = setInterval("show()",1000)
-    }
-
-</script>
-
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Abhishek Kumar — UI/UX Designer & Web Developer</title>
+<meta name="description" content="Personal portfolio of Abhishek Kumar, a UI/UX Designer, Video Editor and Photo Retoucher based in Delhi, India." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 <style>
-  
-  #dark,#light
-{
-  margin: auto;
-  cursor:pointer;
-  text-align: right;
-  color: black;
-  border-radius: 20px;
-  box-shadow: 2px 5px 5px black;
-  font-size: 15px;
-}
+  :root {
+    --primary: #1D232C;
+    --accent: #E62565;
+    --bg: #FFFFFF;
+    --text: #040B14;
+    --muted: #6b7280;
+    --card: #f7f7f9;
+    --border: #e5e7eb;
+    --heading-font: 'Raleway', sans-serif;
+    --body-font: 'Roboto', system-ui, -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--body-font);
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  h1, h2, h3, h4 { font-family: var(--heading-font); color: var(--primary); line-height: 1.2; }
+  a { color: var(--text); text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-  
-  </style>
+  /* ===== Navbar ===== */
+  .navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--primary);
+    padding: 18px 0;
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-family: var(--heading-font); font-weight: 800; color: #fff; font-size: 22px; letter-spacing: 1px; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: #fff; font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; transition: color .2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-toggle { display: none; background: none; border: 0; color: #fff; font-size: 28px; cursor: pointer; }
 
-  
-    
-      
-    <script>
-  
-     var d =document.getElementById("dark")
-     var l =document.getElementById("light")
-     var m =document.createElement("span")
-     var b =document.getElementById("bl")
-     document.body.appendChild(m)
-  
-      function f1()
-      {
-        if(document.body.style.background="black")
-  
-        {
-          
-          
-          document.body.style="background=black;color:;"
-          
-        }
-        else
-        {
-  
-          
-           document.body.style="background:black;color:white;"
-        }
-    }
-      
-    m.style="transition:0.5s;opacity:0;position:absolute;top:0px;left:0px"
-    
-  
-    d.onclick = function()
-    {
-      document.body.style="background:black;color:white;"
-      var c=document.style.getElementById("conti")
-      document.body.appendChild(c)
-  
-    
-       c.style.background="black"
-       
+  /* ===== Sections ===== */
+  section { padding: 100px 0; }
+  .section-title { text-align: center; margin-bottom: 60px; }
+  .section-title h2 { font-size: 42px; font-weight: 800; text-transform: uppercase; }
+  .section-title h2::after {
+    content: ''; display: block; width: 60px; height: 3px;
+    background: var(--accent); margin: 16px auto 0;
+  }
+  .section-title p { color: var(--muted); margin-top: 12px; font-size: 16px; }
 
-  
-    }
-     
-    l.onclick =function()
-    {
-      document.body.style="background:;color:;"
-    }
-  
-    d.onmouseover =function(e)
-    {
-      m.style.opacity=1
-      m.style.top =e.pageY+4+"px"
-      m.style.left =e.pageX-20+"px"
-      
-      document.title ="x ="+e.pageX+" y = "+e.pageY
-      d.style.transform="rotate(360deg)"
-  
-    }
-  
-    d.onmouseout =function()
-    {
-      m.style.opacity=0
-    }
-    
-    
-  
-    l.onmouseover = function(e)
-    {
-      m.style.opacity=1
-      m.style.top =e.pageY+5+"px"
-      m.style.left =e.pageX-65+"px"
-      
-      document.title ="x ="+e.pageX+" y ="+e.pageY
-    }
-  
-    l.mouseout =function(e)
-    {
-      m.style.opacity=0
-      
-    }
-  
-    
-  
-   
-  </script>
+  /* ===== Hero ===== */
+  .hero {
+    min-height: 100vh; background: var(--primary); color: #fff;
+    display: flex; align-items: center; padding-top: 80px;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
+  .hero-badge {
+    display: inline-block; padding: 8px 18px; border: 1px solid var(--accent);
+    border-radius: 50px; color: var(--accent); font-size: 13px; font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .hero h1 { color: #fff; font-size: 72px; font-weight: 800; margin-bottom: 16px; }
+  .hero h1 .accent { color: var(--accent); display: block; }
+  .hero .role { font-size: 22px; color: #cbd5e1; margin-bottom: 36px; font-weight: 300; }
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 14px 28px; border-radius: 50px; font-weight: 600;
+    font-size: 14px; cursor: pointer; transition: all .2s; border: 0; letter-spacing: .5px;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #c41a55; transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: #fff; border: 1px solid #fff; }
+  .btn-outline:hover { background: #fff; color: var(--primary); }
+  .hero-photo { position: relative; display: flex; justify-content: center; }
+  .hero-photo img {
+    width: 360px; height: 360px; border-radius: 50%; object-fit: cover;
+    border: 4px solid var(--accent);
+    box-shadow: 0 20px 50px rgba(230, 37, 101, 0.25);
+  }
+  .hero-photo::before {
+    content: ''; position: absolute; width: 420px; height: 420px;
+    border-radius: 50%; border: 1px solid rgba(230, 37, 101, 0.4);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+  }
 
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-        <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Projects</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-          <ul>
-            
-            <li class="dropdown"><a href="#"><span>Work</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-                <li><a href="proj.html">Competitons</a></li>
-                <li><a href="prcp.html">Practice Pages</a></li>
-                <li><a href="site.html">Sites</a></li>
-               
-              </ul>
-            </li>
-            <li><a href="proj.html">Competitons</a></li>
-            <li><a href="prcp.html">Try Pages</a></li>
-            <li><a href="site.html">Portfolio</a></li>
-          </ul>
-        </li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-      </ul>
-    </nav>
+  /* ===== About ===== */
+  .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; align-items: center; }
+  .about-photo img {
+    width: 100%; max-width: 360px; border-radius: 12px; object-fit: cover;
+    border: 4px solid var(--accent);
+  }
+  .about h3 { font-size: 28px; font-weight: 700; margin-bottom: 16px; color: var(--accent); }
+  .about > .container > .about-grid > div p.lead { font-style: italic; color: var(--muted); margin-bottom: 20px; }
+  .info-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; margin: 24px 0; }
+  .info-list li { display: flex; align-items: center; gap: 8px; font-size: 15px; }
+  .info-list li::before { content: '▸'; color: var(--accent); font-weight: bold; }
+  .info-list strong { color: var(--primary); }
 
-  </header>
+  /* ===== Stats ===== */
+  .stats { background: var(--card); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+  .stat-card { text-align: center; padding: 30px 20px; }
+  .stat-card .num { font-family: var(--heading-font); font-size: 48px; font-weight: 800; color: var(--accent); }
+  .stat-card .label { font-weight: 700; color: var(--primary); margin: 8px 0 4px; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; }
+  .stat-card .sub { font-size: 14px; color: var(--muted); }
 
-  <main class="main">
+  /* ===== Skills ===== */
+  .skills-list { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .skill-badge {
+    padding: 10px 22px; border: 1px solid var(--border); border-radius: 50px;
+    background: #fff; font-weight: 500; font-size: 15px; color: var(--primary);
+    transition: all .2s;
+  }
+  .skill-badge:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: translateY(-2px); }
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
+  /* ===== Resume ===== */
+  .resume { background: var(--card); }
+  .resume-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .resume-block { background: #fff; padding: 30px; border-radius: 12px; border-left: 4px solid var(--accent); }
+  .resume-block h3 { font-size: 22px; margin-bottom: 20px; text-transform: uppercase; }
+  .resume-item { margin-bottom: 24px; padding-left: 20px; border-left: 2px solid var(--border); }
+  .resume-item h4 { font-size: 17px; margin-bottom: 4px; }
+  .resume-item .date { display: inline-block; padding: 4px 12px; background: rgba(230, 37, 101, 0.1); color: var(--accent); border-radius: 50px; font-size: 12px; font-weight: 600; margin-bottom: 8px; }
+  .resume-item p { color: var(--muted); font-size: 14px; }
+  .resume-item ul { padding-left: 18px; color: var(--muted); font-size: 14px; }
+  .resume-cta { text-align: center; margin-top: 40px; }
 
-      <img src="images/hero-bg.jpg" alt="" data-aos="fade-in" class="">
+  /* ===== Portfolio ===== */
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .portfolio-card {
+    background: #fff; border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--border); transition: all .3s;
+  }
+  .portfolio-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(230, 37, 101, 0.15); border-color: var(--accent); }
+  .portfolio-thumb { height: 200px; background: var(--primary); display: flex; align-items: center; justify-content: center; color: #fff; font-family: var(--heading-font); font-size: 28px; font-weight: 800; text-transform: uppercase; position: relative; overflow: hidden; }
+  .portfolio-thumb::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(230,37,101,0.3) 0%, transparent 50%); }
+  .portfolio-info { padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+  .portfolio-info h4 { font-size: 18px; }
+  .portfolio-info a { color: var(--accent); font-weight: 600; font-size: 14px; }
+  .portfolio-info a:hover { text-decoration: underline; }
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>Abhishek Kumar</h2>
-        <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Editor">Designer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+  /* ===== Services ===== */
+  .services { background: var(--card); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card {
+    background: #fff; padding: 36px 28px; border-radius: 12px; text-align: center;
+    transition: all .3s; border-top: 3px solid transparent;
+  }
+  .service-card:hover { transform: translateY(-6px); border-top-color: var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+  .service-icon {
+    width: 70px; height: 70px; margin: 0 auto 20px; border-radius: 50%;
+    background: rgba(230, 37, 101, 0.1); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; font-weight: 700; font-family: var(--heading-font);
+  }
+  .service-card h4 { font-size: 19px; margin-bottom: 12px; }
+  .service-card p { color: var(--muted); font-size: 14px; }
+
+  /* ===== Contact ===== */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; }
+  .contact-info { background: var(--card); padding: 36px; border-radius: 12px; }
+  .contact-item { display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start; }
+  .contact-icon {
+    width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%;
+    background: rgba(230, 37, 101, 0.1); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-family: var(--heading-font);
+  }
+  .contact-item h4 { font-size: 16px; margin-bottom: 4px; }
+  .contact-item p, .contact-item a { color: var(--muted); font-size: 14px; }
+  .contact-form { background: var(--card); padding: 36px; border-radius: 12px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group input, .form-group textarea {
+    width: 100%; padding: 14px 18px; border: 1px solid var(--border);
+    border-radius: 8px; font-family: inherit; font-size: 14px;
+    background: #fff; transition: border .2s;
+  }
+  .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
+  .form-group textarea { min-height: 140px; resize: vertical; }
+  .form-success { display: none; padding: 12px 16px; background: rgba(230, 37, 101, 0.1); color: var(--accent); border-radius: 8px; margin-bottom: 16px; font-size: 14px; }
+  .form-success.show { display: block; }
+
+  /* ===== Footer ===== */
+  footer { background: var(--primary); color: #fff; padding: 50px 0 24px; text-align: center; }
+  footer h3 { color: #fff; margin-bottom: 8px; font-size: 26px; }
+  footer p { color: #cbd5e1; margin-bottom: 24px; }
+  .footer-links { display: flex; gap: 16px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
+  .footer-links a {
+    color: #fff; padding: 8px 18px; border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50px; font-size: 13px; transition: all .2s;
+  }
+  .footer-links a:hover { background: var(--accent); border-color: var(--accent); }
+  .copyright { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; color: #94a3b8; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 900px) {
+    .nav-toggle { display: block; }
+    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--primary); flex-direction: column; padding: 20px; gap: 16px; }
+    .nav-links.open { display: flex; }
+    .hero-grid, .about-grid, .resume-grid, .contact-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 48px; }
+    .stats-grid, .portfolio-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .info-list { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-photo img { width: 260px; height: 260px; }
+    .hero-photo::before { width: 310px; height: 310px; }
+    section { padding: 70px 0; }
+    .section-title h2 { font-size: 32px; }
+  }
+  @media (max-width: 560px) {
+    .stats-grid, .portfolio-grid, .services-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="logo">ABHISHEK<span>.</span></a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">≡</button>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-badge">Available for Full-time & Freelance</span>
+      <h1>Hi, I'm <span class="accent">Abhishek Kumar</span></h1>
+      <p class="role">UI/UX Designer, Video Editor &amp; Photo Retoucher</p>
+      <div class="hero-cta">
+        <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
       </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>I'm a UI/UX Designer with a background in Psychology, which gives me a unique edge in empathizing with users and improving their experience through design.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <img src="images/nn3.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 content">
-            <h2>UI/UX Designer &amp; Web Developer.</h2>
-            <p class="fst-italic py-3">
-              My research experience has refined my problem-solving skills and user insights. I'm constantly seeking new ways to learn and grow through real-world experiences.
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>15 Feb</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>https://aphishek1.github.io/view</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>8130631970</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Delhi, INDIA</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>24</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Graduate</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>itsjoeychandler@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-                </ul>
-              </div>
-            </div>
-            <p class="py-3">
-              "As a recent graduate with a degree in graphic design, I'm excited to launch my career in UI & UX design.
-              Skilled in Adobe Creative Suite, After Effect, and Bootstrap, I'm passionate about creating intuitive and user-friendly interfaces for web and mobile applications.
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Happy Clients</strong> <span>Happy Ideas</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects</strong> <span>Time Management</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hours Of Support</strong> <span>Follow The Trends</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hard Workers</strong> <span>Always Supportive</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Stats Section -->
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills section ">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <p>Skills And Software I Know Very Well,</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row skills-content ">
-
-          <div class="col-lg-6 mt-3">
-
-            <div class="progress ">
-              <span class="skill text-primary"><span>HTML</span> <i class="val"></i></span>
-             
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill text-primary"><span>CSS</span> <i class="val"></i></span>
-             
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill text-primary"><span>JavaScript</span> <i class="val"></i></span>
-             
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill text-primary"><span>Bootstrap</span> <i class="val"></i></span>
-             
-            </div>
-
-            <div class="progress">
-              <span class="skill text-primary"><span>After Effects</span> <i class="val"></i></span>
-             
-            </div>
-
-            <div class="progress">
-              <span class="skill text-primary"><span>Premiere Pro</span> <i class="val"></i></span>
-             
-            </div>
-
-            <div class="progress">
-              <span class="skill text-primary"><span>ChatGpt</span> <i class="val"></i></span>
-             
-            </div>
-
-          </div>
-
-          <div class="col-lg-6 mt-3">
-
-            <div class="progress">
-              <span class="skill text-primary"><span>PHP</span> <i class="val"></i></span>
-              
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill text-primary"><span>WordPress/CMS</span> <i class="val"></i></span>
-              
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill text-primary"><span>Photoshop</span> <i class="val"></i></span>
-              
-            </div>
-
-
-            <div class="progress">
-              <span class="skill text-primary"><span>Figma</span> <i class="val"></i></span>
-              
-            </div>
-
-            <div class="progress">
-              <span class="skill text-primary"><span>Jquery</span> <i class="val"></i></span>
-             
-            </div>
-
-            <div class="progress">
-              <span class="skill text-primary"><span>Capcut</span> <i class="val"></i></span>
-             
-            </div>
-
-            <div class="progress">
-              <span class="skill text-primary"><span>Google Gemini</span> <i class="val"></i></span>
-             
-            </div><!-- End Skills Item -->
-
-          </div>
-
-          <button class="btn  " type="button" style="margin-left:auto;display: flex;text-align: end;"><a href="resme.html">More<div class="spinner-border spinner-border-sm">
-          </div></a></button>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Skills Section -->
-
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Resume</h2>
-        <p>My goal is to become associated with a
-          company where I can utilize my skills and gain
-          further experience while enhancing the
-          company’s productivity and reputation.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Sumary</h3>
-
-            <div class="resume-item pb-0">
-              <h4>Abhishek Kumar</h4>
-              <p><em>Hi, I'm Abhishek Kumar, a passionate UI/UX Designer, Video Editor, and Photo Retoucher.
-                I specialize in creating visually stunning digital experience that engage audiences and communicate stories effectively. </em></p>
-              <ul>
-                <li>Delhi</li>
-                <li>8130631970</li>
-                <li>itsjoeychandler@gmail.com</li>
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Arena Animation GTB Nagar</h4>
-              <h5>2023 - 2025</h5>
-              <p><em> Front-end Developer</em></p>
-              <p>A UI/UX Designer is responsible for creating digital experiences that are both visually appealing and easy to use.</p>
-            </div><!-- Edn Resume Item -->
-
-            <div class="resume-item">
-              <h4>BA Political Science Honours</h4>
-              <h5>2018-2021</h5>
-              <p><em>Delhi University</em></p>
-              <p>Concepts like democracy, liberty, equality, justice and Political ideologies.</p>
-            </div><!-- Edn Resume Item -->
-
-            
-
-          </div>
-          
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">Achievements & Personality</h3>
-            <div class="resume-item">
-              <h4>Awards</h4>
-              <h5>4 Time Winner 2 Time Nominee</h5>
-              <p><em>AOTM Arena Animation</em></p>
-              <ul>
-                
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-            <div class="resume-item">
-              <h4>PERSONALITY TRAITS</h4>
-              
-              
-              <ul>
-                <li>Ability To Handle Any Work Situations</li>
-                <li>Hardworking And Honest</li>
-                <li>Confident And Result Oriented</li>
-                <li>Polite And Pleasant Behaviour</li>
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-
-            <div class="resume-item">
-              <h4>INTERESTS</h4>
-              
-              
-              <ul>
-                <li>Anime</li>
-                <li>Editing</li>
-                <li>Phonk</li>
-               
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Resume Section -->
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section ">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>My Some Working Live Sites.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          
-
-          <div class="row">
-            <div class="col-lg-3 col-sm-6">
-              <div class="item">
-                <div class="thumb">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM998UUrDht63ATiOcHiGRtA3fwxIebObafA&s" alt="">
-                  <div class="hover-effect">
-                    <div class="content">
-                      <div class="live">
-                        <a href="https://aphishek1.github.io/apple/">Live
-                      </div>
-                    </a>
-                      
-                    </div>
-                  </div>
-                </div>
-                <div class="down-content">
-                  <div class="avatar">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrU4gXLyzMTJrhU3qEnsZu1tlwDkE-lefSPw&s" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
-                  </div>
-                  <span><i class="fa fa-check"></i>Apple Iphone</span>
-                  <h4>Site</h4>
-                </div> 
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="item">
-                <div class="thumb">
-                  <img src="https://dynamic.tourtravelworld.com/package-images/photo-small/dir_62/1837333/415623.jpg" alt="">
-                  <div class="hover-effect">
-                    <div class="content">
-                      <div class="live">
-                        <a href="https://aphishek1.github.io/world/">Live</a>
-                      </div>
-                      <ul>
-                       
-                        
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="down-content">
-                  <div class="avatar">
-                    <img src="https://dynamic.tourtravelworld.com/package-images/photo-small/dir_62/1837333/415623.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
-                  </div>
-                  <span><i class="fa fa-check"></i>Adventure Tour</span>
-                  <h4>Site</h4>
-                </div> 
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="item">
-                <div class="thumb">
-                  <img src="https://images.stockcake.com/public/b/e/0/be03210e-004f-4a79-9a11-76624a6094d3_medium/futuristic-urban-bicycle-stockcake.jpg" alt="">
-                  <div class="hover-effect">
-                    <div class="content">
-                      <div class="live">
-                        <a href="https://aphishek1.github.io/cycle/">Live</a>
-                      </div>
-                      <ul>
-                        
-                        
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="down-content">
-                  <div class="avatar">
-                    <img src="https://images.stockcake.com/public/b/e/0/be03210e-004f-4a79-9a11-76624a6094d3_medium/futuristic-urban-bicycle-stockcake.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
-                  </div>
-                  <span><i class="fa fa-check"></i>Modern Cycle</span>
-                  <h4>Site</h4>
-                </div> 
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="item">
-                <div class="thumb">
-                  <img src="https://www.datocms-assets.com/36798/1712842334-footfzpxmagvx0q-edited.png?crop=focalpoint&fit=crop&fp-x=0.6&fp-y=0.65&h=256&w=256" alt="">
-                  <div class="hover-effect">
-                    <div class="content">
-                      <div class="live">
-                        <a href="https://aphishek1.github.io/f1/">Live</a>
-                      </div>
-                      <ul>
-                        
-                        
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="down-content">
-                  <div class="avatar">
-                    <img src="https://www.datocms-assets.com/36798/1712842334-footfzpxmagvx0q-edited.png?crop=focalpoint&fit=crop&fp-x=0.6&fp-y=0.65&h=256&w=256" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
-                  </div>
-                  <span><i class="fa fa-check"></i>Formula F1</span>
-                  <h4>Site</h4>
-                </div> 
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="item">
-                <div class="thumb">
-                  <img src="https://images.stockcake.com/public/b/d/d/bdd41b38-1b41-4d26-9472-781f2ee55e31_medium/luxurious-poolside-view-stockcake.jpg" alt="">
-                  <div class="hover-effect">
-                    <div class="content">
-                      <div class="live">
-                        <a href="https://aphishek1.github.io/resort/">Live</a>
-                      </div>
-                      <ul>
-                        
-                        
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="down-content">
-                  <div class="avatar">
-                    <img src="https://images.stockcake.com/public/b/d/d/bdd41b38-1b41-4d26-9472-781f2ee55e31_medium/luxurious-poolside-view-stockcake.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
-                  </div>
-                  <span><i class="fa fa-check"></i>Resort</span>
-                  <h4>Site</h4>
-                </div> 
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="item">
-                <div class="thumb">
-                  <img src="https://images.stockcake.com/public/e/7/b/e7bf6561-2291-4abe-86b7-1096e2cc0337_medium/mountain-summit-adventure-stockcake.jpg" alt="">
-                  <div class="hover-effect">
-                    <div class="content">
-                      <div class="live">
-                        <a href="https://aphishek1.github.io/leaf/">Live</a>
-                      </div>
-                      <ul>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="down-content">
-                  <div class="avatar">
-                    <img src="https://images.stockcake.com/public/e/7/b/e7bf6561-2291-4abe-86b7-1096e2cc0337_medium/mountain-summit-adventure-stockcake.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
-                  </div>
-                  <span><i class="fa fa-check"></i> Leaf Travel</span>
-                  <h4>Live</h4>
-                </div> 
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="item">
-                <div class="thumb">
-                  <img src="https://images.stockcake.com/public/b/f/8/bf87ca91-f403-40d4-98ce-eb547118ad11_medium/disco-fever-night-stockcake.jpg" alt="">
-                  <div class="hover-effect">
-                    <div class="content">
-                      <div class="live">
-                        <a href="https://aphishek1.github.io/night/">Live</a>
-                      </div>
-                      <ul>
-                    
-                        
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="down-content">
-                  <div class="avatar">
-                    <img src="https://images.stockcake.com/public/b/f/8/bf87ca91-f403-40d4-98ce-eb547118ad11_medium/disco-fever-night-stockcake.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
-                  </div>
-                  <span><i class="fa fa-check"></i>Dance Night</span>
-                  <h4>Live</h4>
-                </div> 
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="item">
-                <div class="thumb">
-                  <img src="https://images.stockcake.com/public/e/5/1/e511c661-c55a-4270-a043-2bedf6c8b157_medium/electronics-store-shoppers-stockcake.jpg" alt="">
-                  <div class="hover-effect">
-                    <div class="content">
-                      <div class="live">
-                        <a href="https://aphishek1.github.io/store/">Live</a>
-                      </div>
-                      <ul>
-                        
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="down-content">
-                  <div class="avatar">
-                    <img src="https://images.stockcake.com/public/e/5/1/e511c661-c55a-4270-a043-2bedf6c8b157_medium/electronics-store-shoppers-stockcake.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
-                  </div>
-                  <span><i class="fa fa-check"></i>Electronic Store</span>
-                  <h4>Live</h4>
-                </div> 
-              </div>
-            </div><!-- End Portfolio Container -->
-
-        </div>
-
-        <button class="btn  w-25 " type="button"><a href="site.html">Explore More<div class="spinner-border spinner-border-sm">
-        </div></a></button>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
-            <div>
-              <h4 class="title"><a href="prcp.html" class="stretched-link">UI UX Design</a></h4>
-              <p class="description">Creating intuitive and visually appealing interfaces for websites and apps.</p>
-            </div>
-          </div>
-          <!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
-            <div>
-              <h4 class="title"><a href="prcp.html" class="stretched-link">Video Edititng</a></h4>
-              <p class="description">Editing raw footage into polished videos for social media,advertisements,or oersonal projects.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
-            <div>
-              <h4 class="title"><a href="prcp.html" class="stretched-link">Photo retouching & Enhancement</a></h4>
-              <p class="description">Improving image quality, color correction, and professional Editing.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon flex-shrink-0"><i class="bi bi-binoculars"></i></div>
-            <div>
-              <h4 class="title"><a href="prcp.html" class="stretched-link">Motion Graphics</a></h4>
-              <p class="description">Designing animated graphics for videos, presentations , or advertisements.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
-            <div>
-              <h4 class="title"><a href="prcp.html" class="stretched-link">Branding & Visual Identity</a></h4>
-              <p class="description">Designing logos, color schemes, and visual assets for businesses.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-            <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
-            <div>
-              <h4 class="title"><a href="prcp.html" class="stretched-link">Social Media Content Creation</a></h4>
-              <p class="description">Designing graphics,posts, and short videos optimized for social platforms.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section ">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container col-md-12 text-center" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-
-
-          <div class="container-fluid text-light" >
-            <div class="row">
-              <div class="col-md-12 text-center">
-      
-      
-          
-          <img src="images/6.jpg" id="pic" class="col-md-12 text-center">
-          <br>
-          <input type="range" min="0" max="6" id="myslider">
-      
-      
-              </div>
-            </div>
-          </div>
-          
-         
-         
-          <script>
-          
-           var mycolor=["red","blue","green","orange","teal","brown"]
-           
-          
-           var plist =["5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","gif3.gif","gif8.gif"]
-         
-           var p = document.getElementById("pic")
-         
-           var s = document.getElementById("myslider")
-         
-           s.onchange = function()
-           {
-             p.src="images/"+plist[s.value]
-           }
-         
-          </script>
-
-
-
-  <button class="btn  w-25 mt-4 " type="button"><a href="https://aphishek1.github.io/app/">More<div class="spinner-border spinner-border-sm">
-   </div></a></button><!-- End testimonial item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Testimonials Section -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>I’m available for Full Time Jobs & projects</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-5">
-
-            <div class="info-wrap">
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>Address</h3>
-                  <p>Delhi</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                <i class="bi bi-telephone flex-shrink-0"></i>
-                <div>
-                  <h3>Call Me</h3>
-                  <p>8130631970</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email To</h3>
-                  <p>itsjoeychandler@gmail.com</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d223994.31267526673!2d76.9248880093099!3d28.692304753991884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d047309fff32f%3A0xfc5606ed1b5d46c3!2sDelhi!5e0!3m2!1sen!2sin!4v1759727281793!5m2!1sen!2sin" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-          </div>
-
-          <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="">
-                </div>
-
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Contact Section -->
-
-  </main>
-
-
-
-
-  <div class="container fs-5" >
-
-    <nav aria-label="breadcrumb" style="right: 0;margin-left: auto;display: flex;">
-        <ol class="breadcrumb" style="right: 0;margin-left: auto;display: flex;">
-            <li class="breadcrumb-item active" aria-current="page">Home</li>
-            
-        </ol>
-    </nav>
-    
-    
-    
-    <nav aria-label="breadcrumb" style="margin-left: auto;display: flex;">
-        <ol class="breadcrumb" style="margin-left: auto;display: flex;">
-            <li class="breadcrumb-item active" aria-current="page"><a href="#" style="right: 0;margin-left: auto;display: flex;">HTML</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="#" style="right: 0;margin-left: auto;display: flex;">Shopping Card</a></li>
-        </ol>
-    </nav>
-    
-    
-    
-    <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb" style="margin-left: auto;display: flex;">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item active outline-danger" style="margin-left: auto;display: flex;"><a href="website full interactive.html">Photo Gallery</a></li>
-
-            <li class="breadcrumb-item active" aria-current="page" >Insta</li>
-        </ol>
-    </nav>
-    
-    
-    <nav style="--bs-breadcrumb-divider : '👌';" style="margin-left: auto;display: flex;">
-        <ol class="breadcrumb" style="right: 0;margin-left: auto;display: flex;">
-
-            <li class="breadcrumb-item active" style="margin-left:auto;display: flex;"><a href="https://rumble.com/c/c-6816266" >Edits</a></li>
-
-            <li class="breadcrumb-item active" aria-current="page" ><a href="https://aphishek1.github.io/boot/car.html" >Carasoul</a></li>
-        </ol>
-    </nav>
-    
-    
     </div>
-  
-    <nav aria-label="...">
-      <ul class="pagination">
-          <li class="page-item disabled" style="margin-left:auto;display: flex;">
-              <a class="page-link">Previous</a>
-          </li>
-          <li class="page-item" aria-current="page"><a class="page-link" href="index.html">Recent page</a></li>
-          <li class="page-item active">
-              <a class="page-link"  href="https://aphishek1.github.io/view1/">Older version</a>
-          </li>    
-          
-          
-      </ul>
-  </nav>
+    <div class="hero-photo">
+      <img src="https://aphishek1.github.io/view/images/file_00000000b85872069cd7e5348079dcde.png" alt="Abhishek Kumar" onerror="this.src='https://via.placeholder.com/360x360/E62565/ffffff?text=AK'" />
+    </div>
+  </div>
+</section>
 
+<!-- About -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>About</h2>
+      <p>Get to know me a little better</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="https://aphishek1.github.io/view/images/file_00000000b85872069cd7e5348079dcde.png" alt="Abhishek Kumar" onerror="this.src='https://via.placeholder.com/360x360/1D232C/E62565?text=Abhishek'" />
+      </div>
+      <div>
+        <h3>UI/UX Designer &amp; Web Developer</h3>
+        <p class="lead">I'm a UI/UX Designer with a background in Psychology, which gives me a unique edge in empathizing with users and improving their experience through design.</p>
+        <ul class="info-list">
+          <li><strong>Birthday:</strong>&nbsp;15 Feb</li>
+          <li><strong>Degree:</strong>&nbsp;Graduate</li>
+          <li><strong>Phone:</strong>&nbsp;+91 8130631970</li>
+          <li><strong>Email:</strong>&nbsp;itsjoeychandler@gmail.com</li>
+          <li><strong>City:</strong>&nbsp;Delhi, INDIA</li>
+          <li><strong>Freelance:</strong>&nbsp;Available</li>
+        </ul>
+        <p>"As a recent graduate with a degree in graphic design, I'm excited to launch my career in UI &amp; UX design. Skilled in Adobe Creative Suite, After Effects, and Bootstrap, I'm passionate about creating intuitive and user-friendly interfaces for web and mobile applications."</p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- Stats -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card"><div class="num">232</div><div class="label">Happy Clients</div><div class="sub">Happy Ideas</div></div>
+      <div class="stat-card"><div class="num">521</div><div class="label">Projects</div><div class="sub">Time Management</div></div>
+      <div class="stat-card"><div class="num">1453</div><div class="label">Hours Of Support</div><div class="sub">Follow The Trends</div></div>
+      <div class="stat-card"><div class="num">32</div><div class="label">Hard Workers</div><div class="sub">Always Supportive</div></div>
+    </div>
+  </div>
+</section>
 
+<!-- Skills -->
+<section id="skills">
+  <div class="container">
+    <div class="section-title">
+      <h2>Skills</h2>
+      <p>Tools and software I work with</p>
+    </div>
+    <div class="skills-list">
+      <span class="skill-badge">HTML</span>
+      <span class="skill-badge">CSS</span>
+      <span class="skill-badge">JavaScript</span>
+      <span class="skill-badge">Bootstrap</span>
+      <span class="skill-badge">Adobe After Effects</span>
+      <span class="skill-badge">Adobe Premiere Pro</span>
+      <span class="skill-badge">ChatGPT</span>
+      <span class="skill-badge">Motions</span>
+      <span class="skill-badge">PHP</span>
+      <span class="skill-badge">WordPress / CMS</span>
+      <span class="skill-badge">Photoshop</span>
+      <span class="skill-badge">Figma</span>
+      <span class="skill-badge">jQuery</span>
+      <span class="skill-badge">CapCut</span>
+      <span class="skill-badge">Prompting</span>
+      <span class="skill-badge">More AI</span>
+    </div>
+  </div>
+</section>
 
-
-  <footer id="footer" class="footer position-relative ">
-
-    <div class="container">
-      
-      
-
-      <footer id="footer" class="footer position-relative footer-section">
-
-    
-    
-        <div class="container relative">
-    
-          
-    
-          <div class="row">
-            <div class="col-lg-8">
-              <div class="subscription-form">
-                <h3 class="d-flex align-items-center"><span class="me-1"></span><span>Subscribe</span></h3>
-    
-                <form action="#" class="row g-3">
-                  <div class="col-auto">
-                    <input type="text" class="form-control" placeholder="Enter your name">
-                  </div>
-                  <div class="col-auto">
-                    <input type="email" class="form-control" placeholder="Enter your email">
-                  </div>
-                  <div class="col-auto">
-                    <button class="btn btn-info">
-                      <i class="bi bi-cloud"></i>
-                    </button>
-                  </div>
-                </form>
-    
-              </div>
-            </div>
-          </div>
-    
-          <div class="row g-5 mb-5">
-            <div class="col-lg-4">
-              <div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Profile<span>.</span></a></div>
-              <p class="mb-4"></p>
-    
-              <ul class="list-unstyled custom-social">
-                <li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-                <li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
-                <li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
-                <li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
-              </ul>
-            </div>
-    
-            <div class="col-lg-8">
-              <div class="row links-wrap">
-                <div class="col-6 col-sm-6 col-md-3  fs-5">
-                  <ul class="list-unstyled">
-                    <li><a href="resme.html">Deatils</a></li> 
-                     <li><a href="resme.html">Resume</a></li> 
-                     <li><a href="resme.html">Experience</a></li> 
-                     <li><a href="resme.html">Knowledge</a></li>
-                    
-                  </ul>
-                </div>
-    
-                <div class="col-6 col-sm-6 col-md-3 fs-5">
-                  <ul class="list-unstyled">
-                    <li><a href="https://www.instagram.com/arenadelhi/">Arena A<i class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href="https://rumble.com/c/c-6816266/">Videos<i class="fa-brands fa-square-youtube"></i></a></li>
-                    <li><a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28669072.43245368!2d40.291162700000015!3d28.700334999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfdee23a9f1fd%3A0x7eeb2fefc55b4be6!2sArena%20Animation!5e0!3m2!1sen!2sin!4v1730086863240!5m2!1sen!2sin">Map</a></li>
-                  </ul>
-                </div>
-    
-                <div class="col-6 col-sm-6 col-md-3 fs-5">
-                  <ul class="list-unstyled">
-                    <li><a href="https://www.linkedin.com/in/abhishek-kumar-732262230">Linkdln</a></li>
-                    <li><a href="http://youtube.com/@RenderRush-007/shorts">Youtube</a></li>
-                    <li><a href="https://rumble.com/c/c-6816266" >Rumble</a></li>
-                    <li><a href="https://www.behance.net/43c4d6f5" >Behnace</a></li>
-                  </ul>
-                </div>
-    
-                
-    
-                <div class="col-6 col-sm-6 col-md-3 fs-5">
-                  <ul class="list-unstyled">
-                    <li><a href="#">Process</a></li>
-                    <li><a href="#">Working</a></li>
-                    <li><a href="#">Upcoming</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-    
-          </div>
-    
-          <div class="border-top copyright">
-            <div class="row pt-4">
-              <div class="col-lg-6">
-                <p class="mb-2 text-center text-lg-start fs-5">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; 
-              </p>
-              </div>
-    
-              <div class="col-lg-6 text-center text-lg-end">
-                <ul class="list-unstyled d-inline-flex ms-auto">
-                  <li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                </ul>
-              </div>
-    
-            </div>
-          </div>
-    
+<!-- Resume -->
+<section class="resume" id="resume">
+  <div class="container">
+    <div class="section-title">
+      <h2>Resume</h2>
+      <p>My goal is to associate with a company where I can utilize my skills and grow.</p>
+    </div>
+    <div class="resume-grid">
+      <div class="resume-block">
+        <h3>Education</h3>
+        <div class="resume-item">
+          <span class="date">2023 - 2025</span>
+          <h4>Arena Animation GTB Nagar</h4>
+          <p><em>Front-end Developer</em></p>
+          <p>A UI/UX Designer is responsible for creating digital experiences that are both visually appealing and easy to use.</p>
         </div>
+        <div class="resume-item">
+          <span class="date">2018 - 2021</span>
+          <h4>BA Political Science Honours</h4>
+          <p><em>Delhi University</em></p>
+          <p>Concepts like democracy, liberty, equality, justice and political ideologies.</p>
+        </div>
+      </div>
+      <div class="resume-block">
+        <h3>Achievements &amp; Personality</h3>
+        <div class="resume-item">
+          <h4>AOTM — Arena Animation</h4>
+          <p><em>5 Time Winner, 2 Time Nominee (Websites &amp; Apps)</em></p>
+        </div>
+        <div class="resume-item">
+          <h4>Personality Traits</h4>
+          <ul>
+            <li>Ability to handle any work situation</li>
+            <li>Hardworking and honest</li>
+            <li>Confident and result oriented</li>
+            <li>Polite and pleasant behaviour</li>
+          </ul>
+        </div>
+        <div class="resume-item">
+          <h4>Interests</h4>
+          <ul>
+            <li>Anime</li>
+            <li>Editing</li>
+            <li>Phonk</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="resume-cta">
+      <a href="https://aphishek1.github.io/view/images/Abhishek.pdf" target="_blank" rel="noopener" class="btn btn-primary">Download CV</a>
+    </div>
+  </div>
+</section>
 
-  </footer>
+<!-- Portfolio -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-title">
+      <h2>Portfolio</h2>
+      <p>Working live sites</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg, #1D232C, #E62565);">Apple</div>
+        <div class="portfolio-info"><h4>Apple iPhone</h4><a href="https://aphishek1.github.io/apple/" target="_blank" rel="noopener">Live →</a></div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg, #2c5530, #6dbf45);">Adventure</div>
+        <div class="portfolio-info"><h4>Adventure Tour</h4><a href="https://aphishek1.github.io/world/" target="_blank" rel="noopener">Live →</a></div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg, #2563eb, #06b6d4);">Cycle</div>
+        <div class="portfolio-info"><h4>Modern Cycle</h4><a href="https://aphishek1.github.io/cycle/" target="_blank" rel="noopener">Live →</a></div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg, #dc2626, #1D232C);">Formula 1</div>
+        <div class="portfolio-info"><h4>Formula F1</h4><a href="https://aphishek1.github.io/f1/" target="_blank" rel="noopener">Live →</a></div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg, #0891b2, #fbbf24);">Resort</div>
+        <div class="portfolio-info"><h4>Resort</h4><a href="https://aphishek1.github.io/resort/" target="_blank" rel="noopener">Live →</a></div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg, #166534, #84cc16);">Leaf</div>
+        <div class="portfolio-info"><h4>Leaf Travel</h4><a href="https://aphishek1.github.io/leaf/" target="_blank" rel="noopener">Live →</a></div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg, #581c87, #E62565);">Dance Night</div>
+        <div class="portfolio-info"><h4>Dance Night</h4><a href="https://aphishek1.github.io/night/" target="_blank" rel="noopener">Live →</a></div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg, #1e40af, #1D232C);">Store</div>
+        <div class="portfolio-info"><h4>Electronic Store</h4><a href="https://aphishek1.github.io/store/" target="_blank" rel="noopener">Live →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Services -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>Services</h2>
+      <p>What I can do for you</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">UX</div>
+        <h4>UI / UX Design</h4>
+        <p>Creating intuitive and visually appealing interfaces for websites and apps.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">VE</div>
+        <h4>Video Editing</h4>
+        <p>Editing raw footage into polished videos for social media, advertisements, or personal projects.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">PR</div>
+        <h4>Photo Retouching</h4>
+        <p>Improving image quality, color correction, and professional editing.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">MG</div>
+        <h4>Motion Graphics</h4>
+        <p>Designing animated graphics for videos, presentations, or advertisements.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">BR</div>
+        <h4>Branding &amp; Visual Identity</h4>
+        <p>Designing logos, color schemes, and visual assets for businesses.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">SM</div>
+        <h4>Social Media Content</h4>
+        <p>Designing graphics, posts, and short videos optimized for social platforms.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>I'm available for full-time jobs and projects</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">A</div>
+          <div><h4>Address</h4><p>Delhi 110054, India</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">P</div>
+          <div><h4>Call Me</h4><a href="tel:+918130631970">+91 8130631970</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">E</div>
+          <div><h4>Email Me</h4><a href="mailto:itsjoeychandler@gmail.com">itsjoeychandler@gmail.com</a></div>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="event.preventDefault(); document.getElementById('formSuccess').classList.add('show'); this.reset();">
+        <div id="formSuccess" class="form-success">Your message has been sent. Thank you!</div>
+        <div class="form-row">
+          <div class="form-group"><input type="text" placeholder="Your Name" required /></div>
+          <div class="form-group"><input type="email" placeholder="Your Email" required /></div>
+        </div>
+        <div class="form-group"><input type="text" placeholder="Subject" required /></div>
+        <div class="form-group"><textarea placeholder="Message" required></textarea></div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
 
- <!-- Vendor JS Files -->
- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
- <script src="assets/vendor/php-email-form/validate.js"></script>
- <script src="assets/vendor/aos/aos.js"></script>
- <script src="assets/vendor/typed.js/typed.umd.js"></script>
- <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
- <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
- <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
- <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
- <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
- <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
- <!-- Main JS File -->
- <script src="assets/js/main.js"></script>
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <h3>Abhishek Kumar</h3>
+    <p>UI/UX Designer · Video Editor · Photo Retoucher</p>
+    <div class="footer-links">
+      <a href="https://www.behance.net/43c4d6f5" target="_blank" rel="noopener">Behance</a>
+      <a href="https://rumble.com/c/c-6816266" target="_blank" rel="noopener">Rumble</a>
+      <a href="https://aphishek1.github.io/view" target="_blank" rel="noopener">Website</a>
+    </div>
+    <div class="copyright">© 2026 Abhishek Kumar. All Rights Reserved.</div>
+  </div>
+</footer>
 
 </body>
-
 </html>
